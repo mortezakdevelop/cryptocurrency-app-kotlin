@@ -15,4 +15,8 @@
         android:name="com.example.cryptocurrencykotlinapplication.fragment.MarketFragment"
         android:label="fragment_market"
         tools:layout="@layout/fragment_market" />
+    <fragment
+        android:id="@+id/charFragment"
+        android:name="com.example.cryptocurrencykotlinapplication.fragment.CharFragment"
+        android:label="CharFragment" />
 </navigation>
