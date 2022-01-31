@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -11,11 +12,25 @@
         android:layout_height="match_parent"
         tools:context=".fragment.CharFragment">
 
+        <include
+            android:id="@+id/included"
+            layout="@layout/toolbarlayout"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
         <TextView
-            android:textSize="18sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="20sp"
+            android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:text="char Fragment" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

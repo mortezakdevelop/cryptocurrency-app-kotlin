@@ -8,15 +8,12 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.cryptocurrencykotlinapplication.fragment.HomeFragment"
-        android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/marketFragment"
         android:name="com.example.cryptocurrencykotlinapplication.fragment.MarketFragment"
-        android:label="fragment_market"
         tools:layout="@layout/fragment_market" />
     <fragment
         android:id="@+id/charFragment"
-        android:name="com.example.cryptocurrencykotlinapplication.fragment.CharFragment"
-        android:label="CharFragment" />
+        android:name="com.example.cryptocurrencykotlinapplication.fragment.CharFragment" />
 </navigation>
