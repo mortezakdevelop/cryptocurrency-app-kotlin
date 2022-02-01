@@ -15,7 +15,9 @@ import androidx.navigation.ui.NavigationUI
 import com.example.cryptocurrencykotlinapplication.MainActivity
 import com.example.cryptocurrencykotlinapplication.R
 import com.example.cryptocurrencykotlinapplication.databinding.FragmentHomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     lateinit var binging: FragmentHomeBinding
