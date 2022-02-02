@@ -8,20 +8,24 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.MutableLiveData
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.example.cryptocurrencykotlinapplication.MainActivity
 import com.example.cryptocurrencykotlinapplication.R
+import com.example.cryptocurrencykotlinapplication.adapter.SliderImageAdapter
 import com.example.cryptocurrencykotlinapplication.databinding.FragmentHomeBinding
-import dagger.hilt.android.AndroidEntryPoint
+import com.example.cryptocurrencykotlinapplication.viewmodel.AppViewModel
 
-@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
-    lateinit var binging: FragmentHomeBinding
+    lateinit var binding: FragmentHomeBinding
     lateinit var mainActivity: MainActivity
+
+     private val viewModel:AppViewModel by viewModels()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -33,14 +37,29 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binging = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_home, container, false)
+        binding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_home, container, false)
         // Inflate the layout for this fragment
-        return binging.root
+
+        setupViewPager2()
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupToolBar(view)
+    }
+
+    private fun setupViewPager2(){
+        viewModel.liveData.observe(viewLifecycleOwner){listdata ->
+            val data: ArrayList<Int> = ArrayList()
+            listdata.forEach{
+                data.add(it)
+            }
+
+            binding.viewPagerImageSlider.adapter = SliderImageAdapter(data)
+            binding.viewPagerImageSlider.offscreenPageLimit = 3
+            binding.viewPagerImageSlider.visibility = View.VISIBLE
+        }
     }
 
     private fun setupToolBar(view: View) {
